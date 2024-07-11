@@ -30,6 +30,7 @@ import { UsersModule } from "./modules/users/users.module";
       },
     }),
     UsersModule,
+    ParkingSpotsModule,
     CaslModule.forRoot<UserRole>({
       getUserFromRequest: (request) =>
         request[AUTHENTICATED_USER_ATTRIBUTE_NAME],
