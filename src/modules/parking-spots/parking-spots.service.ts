@@ -2,10 +2,13 @@ import { Injectable } from "@nestjs/common";
 import { ParkingSpotsRepo } from "./parking-spots.repo";
 import { ParkingSpotDto } from "./dtos/parking-spot.dto";
 import { ParkingSpotEntity } from "./entities/parking-spot.entity";
+import { BaseService } from "src/common/services/base.service";
 
 @Injectable()
-export class ParkingSpotsService {
-  constructor(private readonly parkingSpotsRepo: ParkingSpotsRepo) {}
+export class ParkingSpotsService extends BaseService<ParkingSpotEntity> {
+  constructor(private readonly parkingSpotsRepo: ParkingSpotsRepo) {
+    super(parkingSpotsRepo);
+  }
 
   private mapToDto(parkingSpot: ParkingSpotEntity): ParkingSpotDto {
     return {

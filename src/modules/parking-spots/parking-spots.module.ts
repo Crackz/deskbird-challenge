@@ -17,5 +17,6 @@ import { parkingSpotsPermissions } from "./parking-spots.permission";
   ],
   controllers: [ParkingSpotsController],
   providers: [ParkingSpotsService, ParkingSportsSeedService, ParkingSpotsRepo],
+  exports: [ParkingSpotsService],
 })
 export class ParkingSpotsModule {}

@@ -14,6 +14,7 @@ import { typeormConfig } from "./config/typeorm";
 import { ParkingSpotsModule } from "./modules/parking-spots/parking-spots.module";
 import { UserRole } from "./modules/users/interfaces/users.interface";
 import { UsersModule } from "./modules/users/users.module";
+import { BookingsModule } from "./modules/bookings/bookings.module";
 
 @Module({
   imports: [
@@ -29,12 +30,13 @@ import { UsersModule } from "./modules/users/users.module";
         return configService.get("typeorm");
       },
     }),
-    UsersModule,
-    ParkingSpotsModule,
     CaslModule.forRoot<UserRole>({
       getUserFromRequest: (request) =>
         request[AUTHENTICATED_USER_ATTRIBUTE_NAME],
     }),
+    UsersModule,
+    ParkingSpotsModule,
+    BookingsModule,
   ],
 })
 export class AppModule implements OnModuleInit {
@@ -50,7 +52,7 @@ export class AppModule implements OnModuleInit {
       this.configService.get("NODE_ENV") === NodeEnvironment.TESTING
     ) {
       await this.dataSource.runMigrations();
-      this.logger.log("Migrations Are Executed");
+      this.logger.log("Migrations are executed");
     }
   }
 }

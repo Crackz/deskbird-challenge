@@ -9,6 +9,7 @@ export const NodeEnvironment = {
 // Models Names
 export const USERS_MODEL_NAME = "users";
 export const PARKING_SPORTS_MODEL_NAME = "parking-spots";
+export const BOOKINGS_MODEL_NAME = "bookings";
 
 // Auth Tokens
 export const ADMIN_AUTH_TOKEN = "adminToken1";

@@ -82,4 +82,14 @@ export class OpenApi {
         "Unauthorized access. You are not allowed to access this resource",
     };
   }
+
+  static getApiForbiddenResponseErrorOpts(): ApiResponseOptions {
+    return {
+      ...OpenApi.getApiErrorOpts({
+        message: ErrorMessages.FORBIDDEN,
+      }),
+      description:
+        "Forbidden access. You don't have permission to access this resource",
+    };
+  }
 }

@@ -47,12 +47,15 @@ tasks:
     cmds:
       - ./node_modules/.bin/nest generate resource
 
-  test:init:
+  test:run:
+    cmds:
+      - npm run test:watch
+
+  test:e2e:init:
     cmds:
       - docker compose -f docker-compose.testing.yml down
       - docker compose -f docker-compose.testing.yml up -d
-
-  test:run:
+  test:e2e:run:
     interactive: true
     env:
       NODE_ENV: testing
