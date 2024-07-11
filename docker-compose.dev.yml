@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  app:
+    container_name: deskbird-app
+    init: true
+    build:
+        context: ./
+        target: development
+    volumes:
+        - ./:/app
+        - /app/node_modules
+    ports:
+        - 3000:3000
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      deskbird-network:
+
+  postgres:
+    image: postgres:16.3
+    container_name: deskbird-postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: deskbird
+      POSTGRES_USER: deskbird
+      POSTGRES_PASSWORD: deskbird
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+        deskbird-network:
+
+volumes:
+  postgres:
+  
+networks:
+   deskbird-network:

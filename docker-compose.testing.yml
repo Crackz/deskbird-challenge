@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16.3
+    container_name: test-deskbird-postgres
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_DB: test-deskbird
+      POSTGRES_USER: test-deskbird
+      POSTGRES_PASSWORD: test-deskbird
+    networks:
+        - test-deskbird-network
+
+networks:
+   test-deskbird-network:
