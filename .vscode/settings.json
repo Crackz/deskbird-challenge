@@ -1,0 +1,26 @@
+{
+    "cSpell.words": [
+        "asyncapi",
+        "bigserial",
+        "bullmq",
+        "Casl",
+        "cmds",
+        "datetime",
+        "Deskbird",
+        "flushall",
+        "gameofthree",
+        "Gameplay",
+        "hexists",
+        "hget",
+        "hset",
+        "Metadatas",
+        "NOSQL",
+        "sadd",
+        "scard",
+        "srem",
+        "Taskfile",
+        "TIMESTAMPTZ",
+        "typeorm",
+        "websockets"
+    ]
+}
